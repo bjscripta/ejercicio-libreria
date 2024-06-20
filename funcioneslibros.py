@@ -40,7 +40,7 @@ def opcion3():
                 a = 0
                 a += 1
                 print(f"{a}.Titulo:{l["titulo"]} Autor:{l["autor"]} Año:{l["año"]} Genero:{l["genero"]}")
-                break
+                continue
             else:
                 print("Error, no se encontro el libro con el titulo ingresado")
 
@@ -60,7 +60,7 @@ def opcion4():
                 l["año"] = validar_ano()
                 l["genero"] = validar_genero()
                 print("Informacion actualizada")
-                break
+                continue
             else:
                 print("Error, No se encontro el libro")
 
@@ -84,16 +84,16 @@ def opcion6():
 def validar_nombre():
     while True:
         titulo = input("Ingrese titulo: ")
-        if len(titulo) > 3:
-            break
+        if len(titulo) >= 3:
+            return titulo
         else:
             print("Error, El titulo debe tener mas de 3 caracteres")
 
 def validar_autor():
     while True:
         autor = input("Ingrese autor: ")
-        if len(autor) > 3:
-            break
+        if len(autor) >= 3:
+            return autor
         else:
             print("Error, El autor debe tener mas de 3 caracteres")
 
@@ -101,7 +101,7 @@ def validar_ano():
     while True:
         ano = input("Ingrese año: ")
         if len(ano) == 4:
-            break
+            return ano
         else:
             print("Error, El año debe tener 4 caracteres")
 
@@ -109,7 +109,7 @@ def validar_genero():
     while True:
         genero = input("Ingrese genero: ")
         if len(genero) > 3:
-            break
+            return genero
         else:
             print("Error, El genero debe tener mas de 3 caracteres")
 
@@ -118,7 +118,7 @@ def validar_opcion():
         try:
             opc = int(input("Ingrese opcion: "))
             if opc in (1,2,3,4,5,6):
-                break
+                return opc
             else:
                 print("Error, Ingrese una opcion valida")
         except:
