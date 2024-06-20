@@ -17,9 +17,9 @@ while True:
     elif opc==2:
         opcion2()
     elif opc==3:
-        opcion3()
+        opcion3(libros)
     elif opc==4:
-        opcion4()
+        opcion4(libros)
     elif opc==5:
         opcion5()
     else:

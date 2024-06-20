@@ -25,26 +25,28 @@ def opcion2():
     if len(libros)==0:
         print("Error, No hay libros registrados")
     else:
-        for j in (libros):
-            print(f"Titulo:{j["titulo"]} Autor:{j["autor"]} Año:{j["año"]} Genero:{j["genero"]}")
+        a = 1
+        for j in libros:
+            print(f"{a}. Titulo:{j['titulo']} Autor:{j['autor']} Año:{j['año']} Genero:{j['genero']}")
+            a += 1
 
 
-def opcion3():
-    print("IMPRIMIR PLANILLA DE LIBROS")
+def opcion3(libros):
+    print("BUSCAR LIBRO POR TITULO")
     if len(libros)==0:
         print("No hay libros registrados")
     else:
         titulo = input("Ingrese titulo del libro a buscar: ")
+        libro_encontrado = False
         for l in libros:
             if l["titulo"]==titulo:
-                a = 0
-                a += 1
-                print(f"{a}.Titulo:{l["titulo"]} Autor:{l["autor"]} Año:{l["año"]} Genero:{l["genero"]}")
-                continue
-            else:
-                print("Error, no se encontro el libro con el titulo ingresado")
+                print(f'Titulo:{l["titulo"]} Autor:{l["autor"]} Año:{l["año"]} Genero:{l["genero"]}')
+                libro_encontrado = True
+                break
+        if not libro_encontrado:
+            print("Error, no se encontro el libro con el titulo ingresado")
 
-def opcion4():
+def opcion4(libros):
     print("Actualizar informacion de libro")
     if len(libros)==0:
         print("Error, No hay libros registrados")
@@ -54,15 +56,15 @@ def opcion4():
             if l["titulo"]==titulo:
                 print(f"Titulo:{l["titulo"]} Autor:{l["autor"]} Año:{l["año"]} Genero:{l["genero"]}")
                 print("Ingrese nueva informacion del libro")
-                print("Deje en blanco si no desea actualizar")
                 l["titulo"] = validar_nombre()
                 l["autor"] = validar_autor()
                 l["año"] = validar_ano()
                 l["genero"] = validar_genero()
                 print("Informacion actualizada")
-                continue
+                break
             else:
                 print("Error, No se encontro el libro")
+
 
 def opcion5():
     print("Imprimir planilla de libros")
